@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<bean id="location" class="com.cgi.spring_whole_demo.Location">
+<property name = "LocationId" value = "L1"/>
+<property name = "City" value = "Up"/>
+<property name = "Country" value = "India"/>
+</bean>
+
+<bean id = "department" class = "com.cgi.spring_whole_demo.Department">
+<property name ="Location" ref = "location"/>
+<property name ="DepartmentId" value = "D1"/>
+<property name ="DepartmentName" value = "RnD"/>
+</bean>
+
+<bean id ="employee" class = "com.cgi.spring_whole_demo.Employee" init-method="initEmployee" destroy-method="customDestroyMethod" scope="prototype">
+<property name = "Department" ref = "department"/>
+<property name= "EmployeeId" value = "E1"/>
+<property name = "FirstName" value = "John"/>
+<property name = "LastName" value="Doe"/>
+<property name = "Email" value = "john.doe@email.com"/>
+</bean>
+
+
+</beans>
