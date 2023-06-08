@@ -1,0 +1,15 @@
+package com.example.demo.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.model.Todo;
+
+@Repository
+public interface TodoRepository extends CrudRepository<Todo, Integer> {
+
+	Todo save(Optional<Todo> todos);
+	
+}
